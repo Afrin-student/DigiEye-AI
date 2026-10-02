@@ -2,6 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 let drawing = false;
+let totalPredictions = 0;
 
 // White background
 ctx.fillStyle = "white";
@@ -75,5 +76,22 @@ function predictDigit() {
 
     document.getElementById("confidence").innerText =
         "Confidence: " + confidence + "%";
+
+    // History
+    const li = document.createElement("li");
+
+    li.innerText =
+        randomDigit + " (" + confidence + "%)";
+
+    document.getElementById("historyList").prepend(li);
+
+    // Analytics
+    totalPredictions++;
+
+    document.getElementById("totalPredictions").innerText =
+        totalPredictions;
+
+    document.getElementById("lastPrediction").innerText =
+        randomDigit;
 }
     
