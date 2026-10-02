@@ -108,3 +108,25 @@ button:hover{
         height:250px;
     }
 }
+.history,
+.analytics{
+    margin-top:20px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    color:white;
+}
+
+.history h3,
+.analytics h3{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+#historyList{
+    margin-left:20px;
+}
+
+#historyList li{
+    margin-bottom:5px;
+}
