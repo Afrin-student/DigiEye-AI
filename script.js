@@ -3,8 +3,9 @@ const ctx = canvas.getContext("2d");
 
 let drawing = false;
 let totalPredictions = 0;
+let digitCount = {};
 
-// White background
+// White Background
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -59,8 +60,9 @@ function clearCanvas() {
 
     document.getElementById("prediction").innerText =
         "Draw a digit and click Predict";
+
     document.getElementById("confidence").innerText =
-    "Confidence: --";
+        "Confidence: --";
 }
 
 // Predict Button
@@ -83,15 +85,43 @@ function predictDigit() {
     li.innerText =
         randomDigit + " (" + confidence + "%)";
 
-    document.getElementById("historyList").prepend(li);
+    document
+        .getElementById("historyList")
+        .prepend(li);
 
     // Analytics
     totalPredictions++;
 
-    document.getElementById("totalPredictions").innerText =
-        totalPredictions;
+    document.getElementById(
+        "totalPredictions"
+    ).innerText = totalPredictions;
 
-    document.getElementById("lastPrediction").innerText =
-        randomDigit;
+    document.getElementById(
+        "lastPrediction"
+    ).innerText = randomDigit;
+
+    // Most Predicted Digit
+
+    if (!digitCount[randomDigit]) {
+        digitCount[randomDigit] = 0;
+    }
+
+    digitCount[randomDigit]++;
+
+    let mostDigit = "-";
+    let maxCount = 0;
+
+    for (let digit in digitCount) {
+
+        if (digitCount[digit] > maxCount) {
+
+            maxCount = digitCount[digit];
+            mostDigit = digit;
+        }
+    }
+
+    document.getElementById(
+        "mostPredicted"
+    ).innerText = mostDigit;
 }
     
