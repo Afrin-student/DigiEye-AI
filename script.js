@@ -215,4 +215,52 @@ function clearHistory() {
 
     document.getElementById("mostPredicted").innerText = "--";
 }
+// Touch Events
+
+canvas.addEventListener("touchstart", (e) => {
+
+    drawing = true;
+
+    const touch = e.touches[0];
+
+    const rect = canvas.getBoundingClientRect();
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        touch.clientX - rect.left,
+        touch.clientY - rect.top
+    );
+
+    e.preventDefault();
+});
+
+canvas.addEventListener("touchmove", (e) => {
+
+    if (!drawing) return;
+
+    const touch = e.touches[0];
+
+    const rect = canvas.getBoundingClientRect();
+
+    ctx.lineWidth = 15;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = "black";
+
+    ctx.lineTo(
+        touch.clientX - rect.left,
+        touch.clientY - rect.top
+    );
+
+    ctx.stroke();
+
+    e.preventDefault();
+});
+
+canvas.addEventListener("touchend", () => {
+
+    drawing = false;
+
+    ctx.beginPath();
+});
     
