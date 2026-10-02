@@ -51,6 +51,9 @@ h1{
     cursor:crosshair;
     box-shadow:0 0 20px rgba(56,189,248,0.4);
 }
+#canvas{
+    touch-action: none;
+}
 .buttons{
     display:flex;
     gap:15px;
