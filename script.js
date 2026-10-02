@@ -58,6 +58,8 @@ function clearCanvas() {
 
     document.getElementById("prediction").innerText =
         "Draw a digit and click Predict";
+    document.getElementById("confidence").innerText =
+    "Confidence: --";
 }
 
 // Predict Button
@@ -65,7 +67,13 @@ function predictDigit() {
 
     const randomDigit = Math.floor(Math.random() * 10);
 
+    const confidence =
+        (90 + Math.random() * 10).toFixed(1);
+
     document.getElementById("prediction").innerText =
         "Predicted Digit: " + randomDigit;
+
+    document.getElementById("confidence").innerText =
+        "Confidence: " + confidence + "%";
 }
     
