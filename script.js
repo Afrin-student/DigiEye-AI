@@ -124,4 +124,35 @@ function predictDigit() {
         "mostPredicted"
     ).innerText = mostDigit;
 }
+document
+.getElementById("imageUpload")
+.addEventListener("change", function(event){
+
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    const img = new Image();
+
+    img.onload = function(){
+
+        ctx.fillStyle = "white";
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+    };
+
+    img.src = URL.createObjectURL(file);
+});
     
