@@ -40,3 +40,16 @@ function draw(event) {
         event.clientY - rect.top
     );
 }
+function clearCanvas() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    document.getElementById("prediction").innerText =
+        "Draw a digit and click Predict";
+}
+
