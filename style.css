@@ -130,3 +130,13 @@ button:hover{
 #historyList li{
     margin-bottom:5px;
 }
+#imageUpload{
+    width:100%;
+    margin-top:15px;
+    margin-bottom:15px;
+    padding:10px;
+    border-radius:10px;
+    border:2px solid #38bdf8;
+    background:#0f172a;
+    color:white;
+}
