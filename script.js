@@ -52,4 +52,11 @@ function clearCanvas() {
     document.getElementById("prediction").innerText =
         "Draw a digit and click Predict";
 }
+function predictDigit() {
+
+    const randomDigit = Math.floor(Math.random() * 10);
+
+    document.getElementById("prediction").innerText =
+        "Predicted Digit: " + randomDigit;
+}
 
